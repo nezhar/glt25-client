@@ -1,0 +1,722 @@
+openapi: 3.0.3
+info:
+  title: Carstack API
+  version: 1.0.0
+  description: An API for managing cars
+paths:
+  /api/cars/:
+    get:
+      operationId: cars_list
+      tags:
+      - cars
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Car'
+          description: ''
+    post:
+      operationId: cars_create
+      tags:
+      - cars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+  /api/cars/{id}/:
+    get:
+      operationId: cars_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this car.
+        required: true
+      tags:
+      - cars
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+    put:
+      operationId: cars_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this car.
+        required: true
+      tags:
+      - cars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CarRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+    patch:
+      operationId: cars_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this car.
+        required: true
+      tags:
+      - cars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCarRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCarRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCarRequest'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+          description: ''
+    delete:
+      operationId: cars_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this car.
+        required: true
+      tags:
+      - cars
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/features/:
+    get:
+      operationId: features_list
+      tags:
+      - features
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Feature'
+          description: ''
+    post:
+      operationId: features_create
+      tags:
+      - features
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FeatureRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FeatureRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+          description: ''
+  /api/features/{id}/:
+    get:
+      operationId: features_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this feature.
+        required: true
+      tags:
+      - features
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+          description: ''
+    put:
+      operationId: features_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this feature.
+        required: true
+      tags:
+      - features
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FeatureRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FeatureRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+          description: ''
+    patch:
+      operationId: features_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this feature.
+        required: true
+      tags:
+      - features
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedFeatureRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedFeatureRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedFeatureRequest'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+          description: ''
+    delete:
+      operationId: features_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this feature.
+        required: true
+      tags:
+      - features
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/manufacturers/:
+    get:
+      operationId: manufacturers_list
+      tags:
+      - manufacturers
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Manufacturer'
+          description: ''
+    post:
+      operationId: manufacturers_create
+      tags:
+      - manufacturers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManufacturerRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ManufacturerRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ManufacturerRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+  /api/manufacturers/{id}/:
+    get:
+      operationId: manufacturers_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this manufacturer.
+        required: true
+      tags:
+      - manufacturers
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+    put:
+      operationId: manufacturers_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this manufacturer.
+        required: true
+      tags:
+      - manufacturers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManufacturerRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ManufacturerRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ManufacturerRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+    patch:
+      operationId: manufacturers_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this manufacturer.
+        required: true
+      tags:
+      - manufacturers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedManufacturerRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedManufacturerRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedManufacturerRequest'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+    delete:
+      operationId: manufacturers_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this manufacturer.
+        required: true
+      tags:
+      - manufacturers
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    BodyTypeEnum:
+      enum:
+      - sedan
+      - suv
+      - hatchback
+      - coupe
+      - convertible
+      - truck
+      - van
+      type: string
+      description: |-
+        * `sedan` - Sedan
+        * `suv` - SUV
+        * `hatchback` - Hatchback
+        * `coupe` - Coupe
+        * `convertible` - Convertible
+        * `truck` - Truck
+        * `van` - Van
+    Car:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        manufacturer:
+          allOf:
+          - $ref: '#/components/schemas/Manufacturer'
+          readOnly: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          readOnly: true
+        model_name:
+          type: string
+          maxLength: 100
+        year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        body_type:
+          $ref: '#/components/schemas/BodyTypeEnum'
+        is_electric:
+          type: boolean
+        color:
+          type: string
+          maxLength: 50
+        mileage:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+      required:
+      - body_type
+      - color
+      - features
+      - id
+      - manufacturer
+      - model_name
+      - price
+      - year
+    CarRequest:
+      type: object
+      properties:
+        manufacturer_id:
+          type: integer
+          writeOnly: true
+        features_ids:
+          type: array
+          items:
+            type: integer
+          writeOnly: true
+        model_name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        body_type:
+          $ref: '#/components/schemas/BodyTypeEnum'
+        is_electric:
+          type: boolean
+        color:
+          type: string
+          minLength: 1
+          maxLength: 50
+        mileage:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+      required:
+      - body_type
+      - color
+      - features_ids
+      - manufacturer_id
+      - model_name
+      - price
+      - year
+    Feature:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+      required:
+      - id
+      - name
+    FeatureRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        description:
+          type: string
+      required:
+      - name
+    Manufacturer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        country:
+          type: string
+          maxLength: 100
+        founded_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        description:
+          type: string
+      required:
+      - country
+      - id
+      - name
+    ManufacturerRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        country:
+          type: string
+          minLength: 1
+          maxLength: 100
+        founded_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        description:
+          type: string
+      required:
+      - country
+      - name
+    PatchedCarRequest:
+      type: object
+      properties:
+        manufacturer_id:
+          type: integer
+          writeOnly: true
+        features_ids:
+          type: array
+          items:
+            type: integer
+          writeOnly: true
+        model_name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        body_type:
+          $ref: '#/components/schemas/BodyTypeEnum'
+        is_electric:
+          type: boolean
+        color:
+          type: string
+          minLength: 1
+          maxLength: 50
+        mileage:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+    PatchedFeatureRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        description:
+          type: string
+    PatchedManufacturerRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        country:
+          type: string
+          minLength: 1
+          maxLength: 100
+        founded_year:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        description:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
