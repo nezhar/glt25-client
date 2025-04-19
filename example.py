@@ -42,6 +42,7 @@ with carstack.ApiClient(configuration) as api_client:
         price=f"{fake.random_int(min=5000, max=10000)}",
         color=fake.color(),
         mileage=fake.random_int(min=0, max=200000),
+        rating=fake.random_int(min=1, max=10), # This will be ignored with v1
     )
 
     try:

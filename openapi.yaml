@@ -522,6 +522,11 @@ components:
           maximum: 9223372036854775807
           minimum: -9223372036854775808
           format: int64
+        rating:
+          type: integer
+          maximum: 10
+          minimum: 1
+          nullable: true
       required:
       - body_type
       - color
@@ -568,6 +573,11 @@ components:
           maximum: 9223372036854775807
           minimum: -9223372036854775808
           format: int64
+        rating:
+          type: integer
+          maximum: 10
+          minimum: 1
+          nullable: true
       required:
       - body_type
       - color
@@ -684,6 +694,11 @@ components:
           maximum: 9223372036854775807
           minimum: -9223372036854775808
           format: int64
+        rating:
+          type: integer
+          maximum: 10
+          minimum: 1
+          nullable: true
     PatchedFeatureRequest:
       type: object
       properties:
