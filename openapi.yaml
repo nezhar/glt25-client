@@ -617,7 +617,7 @@ components:
         id:
           type: integer
           readOnly: true
-        name:
+        brand:
           type: string
           maxLength: 100
         country:
@@ -632,13 +632,13 @@ components:
         description:
           type: string
       required:
+      - brand
       - country
       - id
-      - name
     ManufacturerRequest:
       type: object
       properties:
-        name:
+        brand:
           type: string
           minLength: 1
           maxLength: 100
@@ -655,8 +655,8 @@ components:
         description:
           type: string
       required:
+      - brand
       - country
-      - name
     PatchedCarRequest:
       type: object
       properties:
@@ -711,7 +711,7 @@ components:
     PatchedManufacturerRequest:
       type: object
       properties:
-        name:
+        brand:
           type: string
           minLength: 1
           maxLength: 100

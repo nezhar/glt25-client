@@ -10,7 +10,7 @@ configuration = carstack.Configuration(host="http://localhost:8000")
 with carstack.ApiClient(configuration) as api_client:
     # Create a manufacturer instance
     manufacturer_request = carstack.ManufacturerRequest(
-        name=fake.company(), country=fake.country()
+        brand=fake.company(), country=fake.country()
     )
     manufacturer_api = carstack.ManufacturersApi(api_client)
     try:
